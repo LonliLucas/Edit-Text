@@ -20,7 +20,7 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'Edit-Text'
+        title: 'JATE'
       }),
 
       new InjectManifest({
@@ -31,8 +31,8 @@ module.exports = () => {
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
-        name: 'Edit-text',
-        short_name: 'edittext',
+        name: 'JATE',
+        short_name: 'jate',
         description: 'An app to edit your text!',
         background_color: '#242526',
         theme_color: '#242526',
@@ -40,7 +40,7 @@ module.exports = () => {
         publicPath: './',
         icons: [
           {
-            src: path.resolve('src/facicon.ico'),
+            src: path.resolve('src/images/logo.png'),
             destination: path.join('assets', 'icons')
           }
         ]
