@@ -17,10 +17,13 @@ export const putDb = async (content) => {
   console.log ('PUT to database');
 
   const contactDb = await openDB('jate', 1);
-  const tx = contactDb.transaction('jate', 'readonly')
+  const tx = contactDb.transaction('jate', 'readwrite')
   const store = tx.objectStore('jate');
 
-  
+  const request = store.put({ id: 1, value: content });
+
+  const result = await request;
+  return result;
 };
 
 // TODO: Add logic for a method that gets all the content from the database
@@ -34,7 +37,7 @@ export const getDb = async () => {
   const request = store.getAll();
 
   const result = await request;
-  return result;
-}
+  return result.value;
+};
 
 initdb();
